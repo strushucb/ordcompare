@@ -13,6 +13,8 @@
 div#menu {
   padding-top: 5px;
   padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;     
   font-family:  'Libre Franklin', sans-serif;   
     font-size: medium;
 }
@@ -28,12 +30,15 @@ div#menu {
  div#sources {
   padding-top: 5px;
   padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;     
   font-family:  'Libre Franklin', sans-serif;   
     font-size: small;
 }
 
 table {
-    table-layout:fixed
+    table-layout:fixed;
+
 }
 td {
     vertical-align: text-top;
@@ -104,14 +109,25 @@ td {
   </head>
     
 <body>
-    <div id="menu">
-        <strong>Select SERO Ordinances to Compare:</strong><br>
-        <input type="checkbox" class="hidecol" value="aclue" id="col_2" checked/>&nbsp;ACLU Model&nbsp;
-        <input type="checkbox" class="hidecol" value="berkeley" id="col_3" checked/>&nbsp;Berkeley
-        <input type="checkbox" class="hidecol" value="davis" id="col_4" checked/>&nbsp;Davis
-        <input type="checkbox" class="hidecol" value="santaclara" id="col_5" checked/>&nbsp;Santa Clara County
-        <input type="checkbox" class="hidecol" value="oakland" id="col_6" checked/>&nbsp;Oakland
-    </div>
+    <table><tr><td>
+        <div id="menu" class="cornsilk">
+            <strong> Select SERO Ordinances to Compare: </strong><br>
+            <input type="checkbox" class="hidecol" value="aclue" id="col_2" checked/>&nbsp;ACLU Model
+            <input type="checkbox" class="hidecol" value="berkeley" id="col_3" checked/>&nbsp;Berkeley
+            <input type="checkbox" class="hidecol" value="davis" id="col_4" checked/>&nbsp;Davis<br>
+            <input type="checkbox" class="hidecol" value="santaclara" id="col_5" checked/>&nbsp;Santa Clara County
+            <input type="checkbox" class="hidecol" value="oakland" id="col_6" checked/>&nbsp;Oakland
+        </div>
+        </td><td>
+        <div id="sources" class="aliceblue">
+            <strong> Original Source Documents:</strong><br>
+            <a href="docs/ACLU_Model_SERO.pdf" target="_blank" >  ACLU Model Ordinance</a><br>
+            <a href="docs/Berkeley_SERO.pdf" target="_blank" >Berkeley SERO Ordinance</a><br> 
+            <a href="docs/Davis_SERO_Draft.pdf" target="_blank" >Davis SERO Ordinance</a><br> 
+            <a href="docs/SantaClara_SERO.pdf" target="_blank" >Santa Clara County SERO Ordinance</a>  <br> 
+            <a href="docs/Oakland_SERO.pdf" target="_blank" >Oakland SERO Ordinance</a> 
+        </div></td></tr></table>
+
     <div id="page">
         
           <input class="toggle-box" id="identifier-title" type="checkbox" >
@@ -394,14 +410,7 @@ td {
                 </table></div>
         
     </div>
-    <div id="sources">
-        Original Source Documents:
-        <a href="docs/ACLU_Model_SERO.pdf">ACLU Model Ordinance</a>
-        <a href="docs/Berkeley_SERO.pdf">Berkeley SERO Ordinance</a> 
-        <a href="docs/Davis_SERO_Draft.pdf">Davis SERO Ordinance</a> 
-        <a href="docs/SantaClara_SERO.pdf">Santa Clara County SERO Ordinance</a> 
-        <a href="docs/Oakland_SERO.pdf">Oakland SERO Ordinance</a> 
-    </div>
+
       </body>
     
 </html>
@@ -411,7 +420,7 @@ td {
     // Checkbox click
 
         
-        console.log("What");
+        //console.log("What");
     $(".hidecol").click(function(){
 
         var id = this.id;
@@ -497,10 +506,9 @@ td {
 
         }, 5);
     });
-       //document.getElementById("col_4").checked = false;
        $('#col_4').trigger("click" );    
-       //document.getElementById("col_5").checked = false;
        $('#col_5').trigger("click" );    
-    
+       $('#col_6').trigger("click" );
+       $('#identifier-title').trigger("click" ); 
 });</script>
 
