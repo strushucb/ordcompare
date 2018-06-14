@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en-GB"><head>
+            <title>Ordinance Compare</title>
+          <meta charset="UTF-8">
+
+          <style type="text/css">
+@import url('https://fonts.googleapis.com/css?family=Libre+Franklin');
+ @font-face {
+    font-family: "imperial";
+    src: url(imperial.woff);
+}
+
+div#menu {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-family:  'Libre Franklin', sans-serif;   
+    font-size: medium;
+}
+              
+              div#page {
+  height: 200px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  font-family:  'Libre Franklin', sans-serif;   
+    font-size: small;
+}
+
+table {
+    table-layout:fixed
+}
+td {
+    vertical-align: text-top;
+    padding: 10px;     
+} 
+
+.aliceblue {
+   background-color:aliceblue;
+} 
+.cornsilk {
+   background-color:cornsilk;
+} 
+.azure {
+   background-color:azure ;
+} 
+.red {
+   background-color: red;
+} 
+.red {
+   background-color: red;
+} 
+              
+              
+.toggle-box {
+  display: none;
+}
+
+.toggle-box + label {
+  cursor: pointer;
+  display: block;
+  font-weight: bold;
+  line-height: 21px;
+  margin-bottom: 5px;
+}
+
+.toggle-box + label + div {
+  display: none;
+  margin-bottom: 10px;
+}
+
+.toggle-box:checked + label + div {
+  display: block;
+}
+
+.toggle-box + label:before {
+  background-color: #4F5150;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  color: #FFFFFF;
+  content: "+";
+  display: block;
+  float: left;
+  font-weight: bold;
+  height: 20px;
+  line-height: 20px;
+  margin-right: 5px;
+  text-align: center;
+  width: 20px;
+}
+
+.toggle-box:checked + label:before {
+  content: "\2212";
+}
+
+              
+              
+</style>
+    <script src="ordinances.json"></script>
+  </head>
+    
+<body>
+    <div id="menu">
+        <strong>Select SERO Ordinances to Compare:</strong><br>
+        <input type="checkbox" class="hidecol" value="aclue" id="col_2" checked/>&nbsp;ACLU Model&nbsp;
+        <input type="checkbox" class="hidecol" value="berkeley" id="col_3" checked/>&nbsp;Berkeley
+        <input type="checkbox" class="hidecol" value="davis" id="col_4" checked/>&nbsp;Davis
+        <input type="checkbox" class="hidecol" value="santaclara" id="col_5" checked/>&nbsp;Santa Clara County
+        <input type="checkbox" class="hidecol" value="oakland" id="col_6" checked/>&nbsp;Oakland
+    </div>
+    <div id="page">
+        
+          <input class="toggle-box" id="identifier-title" type="checkbox" >
+          <label for="identifier-title">Title</label>
+            <div><table id="title" width=100% table-layout:fixed>
+                <script> 
+                    var text = "<tr class=\"tr_header\">";
+                    for(var org in data.orgs){
+                       text = text + "<th>"+data.orgs[org].name+"</th>";
+                    }
+                    text = text +"</tr><tr>";
+                    for(var org in data.orgs){
+                        text = text + "<td>"+data.orgs[org].title+"</td>";
+                    }
+                    text = text +"</tr>";
+                    document.getElementById("title").innerHTML = text;
+                    </script>
+                </table></div>
+        
+          <input class="toggle-box" id="identifier-defs" type="checkbox" >
+          <label for="identifier-defs">Definitions</label>
+        <div><table><tr><td></td><td>
+            <input class="toggle-box" id="identifier-def1" type="checkbox" >
+            <label for="identifier-def1">"Surveillance Technology"</label>
+                <div><table id="definition1" width=100% table-layout:fixed>
+                    <script> 
+                    var text = "<tr class=\"tr_header\">";
+                    for(var org in data.orgs){
+                       text = text + "<th>"+data.orgs[org].name+"</th>";
+                    }
+                    text = text +"</tr><tr>";
+                    for(var org in data.orgs){
+                        text = text + "<td>"+data.orgs[org].definitions.survtech+"</td>";
+                    }
+                    text = text +"</tr>";
+                    document.getElementById("definition1").innerHTML = text;
+                    </script>
+                </table></div>
+            <input class="toggle-box" id="identifier-def2" type="checkbox" >
+            <label for="identifier-def2">"Surveillance Report"</label>
+                <div><table id="definition2" width=100% table-layout:fixed>
+                    <script> 
+                    var text = "<tr class=\"tr_header\">";
+                    for(var org in data.orgs){
+                       text = text + "<th>"+data.orgs[org].name+"</th>";
+                    }
+                    text = text +"</tr><tr>";
+                    for(var org in data.orgs){
+                        text = text + "<td>"+data.orgs[org].definitions.survreport+"</td>";
+                    }
+                    text = text +"</tr>";
+                    document.getElementById("definition2").innerHTML = text;
+                    </script>
+
+                    </table></div>
+            <input class="toggle-box" id="identifier-def3" type="checkbox" >
+            <label for="identifier-def3">"Surveillance Impact Report"</label>
+                <div><table id="definition3" width=100% table-layout:fixed>
+                    <script> 
+                    var text = "<tr class=\"tr_header\">";
+                    for(var org in data.orgs){
+                       text = text + "<th>"+data.orgs[org].name+"</th>";
+                    }
+                    text = text +"</tr><tr>";
+                    for(var org in data.orgs){
+                        text = text + "<td>"+data.orgs[org].definitions.survimpact+"</td>";
+                    }
+                    text = text +"</tr>";
+                    document.getElementById("definition3").innerHTML = text;
+                    </script>
+
+                    </table></div>
+            <input class="toggle-box" id="identifier-def4" type="checkbox" >
+            <label for="identifier-def4">"Surveillance Use Policy"</label>
+                <div><table id="definition4" width=100% table-layout:fixed>
+                    <script> 
+                    var text = "<tr class=\"tr_header\">";
+                    for(var org in data.orgs){
+                       text = text + "<th>"+data.orgs[org].name+"</th>";
+                    }
+                    text = text +"</tr><tr>";
+                    for(var org in data.orgs){
+                        text = text + "<td>"+data.orgs[org].definitions.survpolicy+"</td>";
+                    }
+                    text = text +"</tr>";
+                    document.getElementById("definition4").innerHTML = text;
+                    </script>
+
+                    </table></div>
+            </td></tr></table>
+        </div>
+
+                <input class="toggle-box" id="identifier-commission" type="checkbox" >
+          <label for="identifier-commission">Public Commission Notification and Review Requirements</label>
+            <div><table id="commission" width=100% table-layout:fixed>
+                <script> 
+                    var text = "<tr class=\"tr_header\">";
+                    for(var org in data.orgs){
+                       text = text + "<th>"+data.orgs[org].name+"</th>";
+                    }
+                    text = text +"</tr><tr>";
+                    for(var org in data.orgs){
+                        text = text + "<td>"+data.orgs[org].commission+"</td>";
+                    }
+                    text = text +"</tr>";
+                    document.getElementById("commission").innerHTML = text;
+                    </script>
+                </table></div>
+        
+        <input class="toggle-box" id="identifier-approvalreq" type="checkbox" >
+          <label for="identifier-approvalreq">[Council/Board] Approval Requirement / Information Required</label>
+            <div><table id="approvalreq" width=100% table-layout:fixed>
+                <script> 
+                    var text = "<tr class=\"tr_header\">";
+                    for(var org in data.orgs){
+                       text = text + "<th>"+data.orgs[org].name+"</th>";
+                    }
+                    text = text +"</tr><tr>";
+                    for(var org in data.orgs){
+                        text = text + "<td>"+data.orgs[org].approvalreq+"</td>";
+                    }
+                    text = text +"</tr>";
+                    document.getElementById("approvalreq").innerHTML = text;
+                    </script>
+                </table></div>
+        
+        <input class="toggle-box" id="identifier-exigent" type="checkbox" >
+          <label for="identifier-exigent">Temporary Acquisition and Use of Surveillance Equipment</label>
+            <div><table id="exigent" width=100% table-layout:fixed>
+                <script> 
+                    var text = "<tr class=\"tr_header\">";
+                    for(var org in data.orgs){
+                       text = text + "<th>"+data.orgs[org].name+"</th>";
+                    }
+                    text = text +"</tr><tr>";
+                    for(var org in data.orgs){
+                        text = text + "<td>"+data.orgs[org].exigent+"</td>";
+                    }
+                    text = text +"</tr>";
+                    document.getElementById("exigent").innerHTML = text;
+                    </script>
+                </table></div>
+           
+        
+        
+        <input class="toggle-box" id="identifier-determination" type="checkbox" >
+          <label for="identifier-determination">Determination by [Council/Board] that Benefits Outweigh Costs and Concerns</label>
+            <div><table id="determination" width=100% table-layout:fixed>
+                <script> 
+                    var text = "<tr class=\"tr_header\">";
+                    for(var org in data.orgs){
+                       text = text + "<th>"+data.orgs[org].name+"</th>";
+                    }
+                    text = text +"</tr><tr>";
+                    for(var org in data.orgs){
+                        text = text + "<td>"+data.orgs[org].determination+"</td>";
+                    }
+                    text = text +"</tr>";
+                    document.getElementById("determination").innerHTML = text;
+                    </script>
+                </table></div>
+
+                <input class="toggle-box" id="identifier-compliance" type="checkbox" >
+          <label for="identifier-compliance">Compliance for Existing Surveillance Technology</label>
+            <div><table id="compliance" width=100% table-layout:fixed>
+                <script> 
+                    var text = "<tr class=\"tr_header\">";
+                    for(var org in data.orgs){
+                       text = text + "<th>"+data.orgs[org].name+"</th>";
+                    }
+                    text = text +"</tr><tr>";
+                    for(var org in data.orgs){
+                        text = text + "<td>"+data.orgs[org].compliance+"</td>";
+                    }
+                    text = text +"</tr>";
+                    document.getElementById("compliance").innerHTML = text;
+                    </script>
+                </table></div>
+
+        
+                  <input class="toggle-box" id="identifier-oversight" type="checkbox" >
+          <label for="identifier-oversight">Oversight Following [Council/Board] Approval</label>
+            <div><table id="oversight" width=100% table-layout:fixed>
+                <script> 
+                    var text = "<tr class=\"tr_header\">";
+                    for(var org in data.orgs){
+                       text = text + "<th>"+data.orgs[org].name+"</th>";
+                    }
+                    text = text +"</tr><tr>";
+                    for(var org in data.orgs){
+                        text = text + "<td>"+data.orgs[org].oversight+"</td>";
+                    }
+                    text = text +"</tr>";
+                    document.getElementById("oversight").innerHTML = text;
+                    </script>
+                </table></div>
+                          <input class="toggle-box" id="identifier-secrecy" type="checkbox" >
+          <label for="identifier-secrecy">Secrecy of / Public Access to Surveillance Technology Contracts</label>
+            <div><table id="secrecy" width=100% table-layout:fixed>
+                <script> 
+                    var text = "<tr class=\"tr_header\">";
+                    for(var org in data.orgs){
+                       text = text + "<th>"+data.orgs[org].name+"</th>";
+                    }
+                    text = text +"</tr><tr>";
+                    for(var org in data.orgs){
+                        text = text + "<td>"+data.orgs[org].secrecy+"</td>";
+                    }
+                    text = text +"</tr>";
+                    document.getElementById("secrecy").innerHTML = text;
+                    </script>
+                </table></div>
+
+          <input class="toggle-box" id="identifier-enforce" type="checkbox" >
+          <label for="identifier-enforce">Enforcement</label>
+            <div><table id="enforcement" width=100% table-layout:fixed>
+                <script> 
+                    var text = "<tr class=\"tr_header\">";
+                    for(var org in data.orgs){
+                       text = text + "<th>"+data.orgs[org].name+"</th>";
+                    }
+                    text = text +"</tr><tr>";
+                    for(var org in data.orgs){
+                        text = text + "<td>"+data.orgs[org].enforcement+"</td>";
+                    }
+                    text = text +"</tr>";
+                    document.getElementById("enforcement").innerHTML = text;
+                    </script>
+                </table></div>
+
+          <input class="toggle-box" id="identifier-whistle" type="checkbox" >
+          <label for="identifier-whistle">Whistleblower Protection</label>
+            <div><table id="whistleblower" width=100% table-layout:fixed>
+                <script> 
+                    var text = "<tr class=\"tr_header\">";
+                    for(var org in data.orgs){
+                       text = text + "<th>"+data.orgs[org].name+"</th>";
+                    }
+                    text = text +"</tr><tr>";
+                    for(var org in data.orgs){
+                        text = text + "<td>"+data.orgs[org].whistleblower+"</td>";
+                    }
+                    text = text +"</tr>";
+                    document.getElementById("whistleblower").innerHTML = text;
+                    </script>
+                </table></div>
+
+          <input class="toggle-box" id="identifier-sever" type="checkbox" >
+          <label for="identifier-sever">Severability</label>
+            <div><table id="severability" width=100% table-layout:fixed>
+                <script> 
+                    var text = "<tr class=\"tr_header\">";
+                    for(var org in data.orgs){
+                       text = text + "<th>"+data.orgs[org].name+"</th>";
+                    }
+                    text = text +"</tr><tr>";
+                    for(var org in data.orgs){
+                        text = text + "<td>"+data.orgs[org].severability+"</td>";
+                    }
+                    text = text +"</tr>";
+                    document.getElementById("severability").innerHTML = text;
+                    </script>
+                </table></div>
+        
+                  <input class="toggle-box" id="identifier-date" type="checkbox" >
+          <label for="identifier-date">Effective Date</label>
+            <div><table id="effectivedate" width=100% table-layout:fixed>
+                <script> 
+                    var text = "<tr class=\"tr_header\">";
+                    for(var org in data.orgs){
+                       text = text + "<th>"+data.orgs[org].name+"</th>";
+                    }
+                    text = text +"</tr><tr>";
+                    for(var org in data.orgs){
+                        text = text + "<td>"+data.orgs[org].effectivedate+"</td>";
+                    }
+                    text = text +"</tr>";
+                    document.getElementById("effectivedate").innerHTML = text;
+                    </script>
+                </table></div>
+        
+    </div>
+    
+      </body>
+    
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>$(document).ready(function(){
+        // http://makitweb.com/how-to-hide-and-show-the-table-column-using-jquery/
+    // Checkbox click
+
+        
+        console.log("What");
+    $(".hidecol").click(function(){
+
+        var id = this.id;
+        var splitid = id.split("_");
+        var colno = splitid[1]-1;
+        var checked = true;
+         
+        // Checking Checkbox state
+        if($(this).is(":checked")){
+            checked = true;
+        }else{
+            checked = false;
+        }
+        setTimeout(function(){
+            if(!checked){
+                $('#title td:nth-child('+colno+')').hide();
+                $('#title th:nth-child('+colno+')').hide();
+                $('#definition1 td:nth-child('+colno+')').hide();
+                $('#definition1 th:nth-child('+colno+')').hide();
+                $('#definition2 td:nth-child('+colno+')').hide();
+                $('#definition2 th:nth-child('+colno+')').hide();
+                $('#definition3 td:nth-child('+colno+')').hide();
+                $('#definition3 th:nth-child('+colno+')').hide();
+                $('#definition4 td:nth-child('+colno+')').hide();
+                $('#definition4 th:nth-child('+colno+')').hide();
+                $('#commission td:nth-child('+colno+')').hide();
+                $('#commission th:nth-child('+colno+')').hide();                
+                $('#approvalreq td:nth-child('+colno+')').hide();
+                $('#approvalreq th:nth-child('+colno+')').hide();
+                $('#exigent td:nth-child('+colno+')').hide();
+                $('#exigent th:nth-child('+colno+')').hide();
+                $('#oversight td:nth-child('+colno+')').hide();
+                $('#oversight th:nth-child('+colno+')').hide();
+                $('#compliance td:nth-child('+colno+')').hide();
+                $('#compliance th:nth-child('+colno+')').hide();
+                $('#determination td:nth-child('+colno+')').hide();
+                $('#determination th:nth-child('+colno+')').hide();
+                $('#secrecy td:nth-child('+colno+')').hide();
+                $('#secrecy th:nth-child('+colno+')').hide();
+                $('#enforcement td:nth-child('+colno+')').hide();
+                $('#enforcement th:nth-child('+colno+')').hide();
+                $('#whistleblower td:nth-child('+colno+')').hide();
+                $('#whistleblower th:nth-child('+colno+')').hide();
+                $('#severability td:nth-child('+colno+')').hide();
+                $('#severability th:nth-child('+colno+')').hide();
+                $('#effectivedate td:nth-child('+colno+')').hide();
+                $('#effectivedate th:nth-child('+colno+')').hide();
+            } else{
+                $('#title td:nth-child('+colno+')').show();
+                $('#title th:nth-child('+colno+')').show();
+                $('#definition1 td:nth-child('+colno+')').show();
+                $('#definition1 th:nth-child('+colno+')').show();
+                $('#definition2 td:nth-child('+colno+')').show();
+                $('#definition2 th:nth-child('+colno+')').show();
+                $('#definition3 td:nth-child('+colno+')').show();
+                $('#definition3 th:nth-child('+colno+')').show();
+                $('#definition4 td:nth-child('+colno+')').show();
+                $('#definition4 th:nth-child('+colno+')').show();
+                $('#commission td:nth-child('+colno+')').show();
+                $('#commission th:nth-child('+colno+')').show();                
+                $('#approvalreq td:nth-child('+colno+')').show();
+                $('#approvalreq th:nth-child('+colno+')').show();
+                $('#exigent td:nth-child('+colno+')').show();
+                $('#exigent th:nth-child('+colno+')').show();
+                $('#oversight td:nth-child('+colno+')').show();
+                $('#oversight th:nth-child('+colno+')').show();
+                $('#compliance td:nth-child('+colno+')').show();
+                $('#compliance th:nth-child('+colno+')').show();
+                $('#determination td:nth-child('+colno+')').show();
+                $('#determination th:nth-child('+colno+')').show();
+                $('#secrecy td:nth-child('+colno+')').show();
+                $('#secrecy th:nth-child('+colno+')').show();
+                $('#enforcement td:nth-child('+colno+')').show();
+                $('#enforcement th:nth-child('+colno+')').show();
+                $('#whistleblower td:nth-child('+colno+')').show();
+                $('#whistleblower th:nth-child('+colno+')').show();
+                $('#severability td:nth-child('+colno+')').show();
+                $('#severability th:nth-child('+colno+')').show();
+                $('#effectivedate td:nth-child('+colno+')').show();
+                $('#effectivedate th:nth-child('+colno+')').show();
+
+            }
+
+        }, 5);
+    });
+       //document.getElementById("col_4").checked = false;
+       $('#col_4').trigger("click" );    
+       //document.getElementById("col_5").checked = false;
+       $('#col_5').trigger("click" );    
+    
+});</script>
