@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-GB"><head>
-            <title>Ordinance Compare</title>
+            <title>Bay Area SERO Ordinances</title>
           <meta charset="UTF-8">
 
           <style type="text/css">
@@ -17,10 +17,17 @@ div#menu {
     font-size: medium;
 }
               
-              div#page {
+ div#page {
   height: 200px;
   padding-top: 25px;
   padding-bottom: 25px;
+  font-family:  'Libre Franklin', sans-serif;   
+    font-size: small;
+}
+              
+ div#sources {
+  padding-top: 5px;
+  padding-bottom: 5px;
   font-family:  'Libre Franklin', sans-serif;   
     font-size: small;
 }
@@ -45,9 +52,7 @@ td {
 .red {
    background-color: red;
 } 
-.red {
-   background-color: red;
-} 
+
               
               
 .toggle-box {
@@ -389,7 +394,14 @@ td {
                 </table></div>
         
     </div>
-    
+    <div id="sources">
+        Original Source Documents:
+        <a href="docs/ACLU_Model_SERO.pdf">ACLU Model Ordinance</a>
+        <a href="docs/Berkeley_SERO.pdf">Berkeley SERO Ordinance</a> 
+        <a href="docs/Davis_SERO_Draft.pdf">Davis SERO Ordinance</a> 
+        <a href="docs/SantaClara_SERO.pdf">Santa Clara County SERO Ordinance</a> 
+        <a href="docs/Oakland_SERO.pdf">Oakland SERO Ordinance</a> 
+    </div>
       </body>
     
 </html>
@@ -491,3 +503,4 @@ td {
        $('#col_5').trigger("click" );    
     
 });</script>
+
